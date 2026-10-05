@@ -1,0 +1,17 @@
+Stack Mechanics
+
+While working with the recursive factorial and Fibonacci functions, I was able to see how the call stack grows and shrinks during recursion. Each time a recursive function calls itself, another function call is added to the stack. The print statements helped me see the order in which the functions were called and how they returned after reaching the base case. With factorial, the calls continued until the base case was reached, and then each previous call returned its result in reverse order. The Fibonacci function created many more function calls because each call can create two additional recursive calls.
+
+The stack overflow demonstration showed what can happen when recursion does not have a proper stopping condition. Without a base case, the function continues calling itself and keeps adding stack frames until the program runs out of available stack space and crashes. Adding a proper base case prevents this because the recursion eventually stops. Each stack frame stores information needed for a function call, including parameters, local variables, and the return address that tells the program where to continue after the function finishes.
+
+Recursion Costs
+
+Factorial and Fibonacci demonstrated that recursive functions can have very different costs. Factorial creates one recursive call at each level, so its stack depth grows in a straightforward way based on the input. The recursive Fibonacci function performs many repeated calculations because most calls create two more calls. This makes Fibonacci much more expensive as the input becomes larger.
+
+Python limits recursion depth to protect the program from using all available stack memory. Without a recursion limit, an incorrect recursive function could continue creating stack frames until the program exhausted its stack space and crashed. This is similar to the stack overflow behavior demonstrated in C.
+
+Function Pointers and Callbacks
+
+Function pointers allow a C program to store the address of a function and pass that function to another function as a parameter. This makes programs more flexible because one general function can perform different behaviors depending on which callback function it receives. In this assignment, the array processing function could perform operations such as doubling, squaring, or negating values by using different callback functions without rewriting the entire processor.
+
+A real-world example is a graphical user interface. A program can register callback functions for events such as clicking a button or selecting an option. When the event occurs, the appropriate callback executes. Systems programmers use callbacks because they make software more modular and allow behavior to be changed without tightly connecting every part of the program.
